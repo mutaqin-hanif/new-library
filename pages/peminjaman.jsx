@@ -1,10 +1,23 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
+import Table from "../components/table";
 import SideHead from "../components/layouts/sideHead";
+import bookBorrowing from "../dummies/bookBorrowing";
+import tableCols from "../dummies/tableCols";
 
 export default function () {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
   const [tabUnderlineWidth, setTabUnderlineWidth] = useState(0);
   const [tabUnderlineLeft, setTabUnderlineLeft] = useState(0);
+  const view = [
+    <Table
+      columns={useMemo(() => tableCols.borrow, [])}
+      data={useMemo(() => bookBorrowing, [])}
+    />,
+    <Table
+      columns={useMemo(() => tableCols.borrow, [])}
+      data={useMemo(() => bookBorrowing, [])}
+    />,
+  ];
 
   const tabsRef = useRef([]);
 
@@ -20,10 +33,6 @@ export default function () {
 
     return () => window.removeEventListener("resize", setTabPosition);
   }, [activeTabIndex]);
-
-  useEffect(() => {
-    console.log({ tabUnderlineLeft, tabUnderlineWidth });
-  }, [tabUnderlineLeft, tabUnderlineWidth]);
 
   return (
     <SideHead title="Peminjaman Buku">
@@ -53,6 +62,7 @@ export default function () {
           />
         </span>
       </div>
+      {view[activeTabIndex]}
     </SideHead>
   );
 }

@@ -65,7 +65,7 @@ export default function Login() {
               <p className="mx-3 text-center">atau masuk dengan</p>
               <hr className="w-24 h-px bg-gray-200 border-0" />
             </div>
-            <Link href="/deposit-system">
+            <Link href="/beranda">
               <button className="bg-black rounded-lg p-2 font-semibold w-full">
                 Studentsite
               </button>
