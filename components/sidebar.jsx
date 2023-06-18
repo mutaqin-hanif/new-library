@@ -9,7 +9,7 @@ export default function () {
   const router = useRouter();
   const [upper, lower] = sidebar;
   return (
-    <nav className="bg-purple-600 flex flex-col justify-between py-5 max-w-max h-screen">
+    <nav className="bg-purple-600 flex flex-col justify-between py-5 max-w-max h-screen sticky top-0">
       <div className="flex flex-col items-center">
         <Image src={logo} className="mb-3" alt="logo" />
         {upper.map((menu, i, arr) => {
