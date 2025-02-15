@@ -3,6 +3,7 @@ import Table from "../components/table";
 import SideHead from "../components/layouts/sideHead";
 import bookBorrowing from "../dummies/bookBorrowing";
 import tableCols from "../dummies/tableCols";
+import bookHistory from "../dummies/bookHistory";
 
 export default function () {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
@@ -15,7 +16,7 @@ export default function () {
     />,
     <Table
       columns={useMemo(() => tableCols.borrow, [])}
-      data={useMemo(() => bookBorrowing, [])}
+      data={useMemo(() => bookHistory, [])}
     />,
   ];
 
