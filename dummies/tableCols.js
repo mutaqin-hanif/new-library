@@ -17,7 +17,19 @@ export default {
     { Header: "LOKASI BUKU", accessor: "loc" },
     { Header: "TANGGAL PINJAM", accessor: "borrow" },
     { Header: "TANGGAL KEMBALI", accessor: "back" },
-    { Header: "TANGGAL PERPANJANG", accessor: "extend" },
+    {
+      Header: "TANGGAL PERPANJANG",
+      accessor: "extend",
+      Cell: ({ row }) => {
+        return (
+          row.original.extend || (
+            <button className="bg-amber-500 px-4 rounded py-1">
+              Perpanjang
+            </button>
+          )
+        );
+      },
+    },
     { Header: "DENDA", accessor: "forfeit" },
   ],
 };
