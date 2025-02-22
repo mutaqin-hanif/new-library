@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import PaperProcess from "../components/home/paperProcess";
 import SideHead from "../components/layouts/sideHead";
 import Table from "../components/table";
@@ -9,6 +9,8 @@ import NewsCard from "../components/home/newsCard";
 import news from "dummies/news";
 
 export default function Home() {
+  const [donateState, setDonateState] = useState([true, false, false, false])
+
   return (
     <SideHead title="Beranda">
       <div className="flex gap-5 mt-10">
@@ -44,7 +46,7 @@ export default function Home() {
         </div>
         {/* right */}
         <div className="bg-white p-5 w-1/2 rounded-lg">
-          <PaperProcess />
+          <PaperProcess donateState={donateState}/>
         </div>
       </div>
     </SideHead>
